@@ -1,4 +1,4 @@
-FROM postgres:7.11
+FROM postgres:11.2
 
 LABEL MAINTAINER="github.com/tangx"
 
@@ -27,5 +27,5 @@ RUN apt update \
     && echo $ORACLE_HOME/lib > /etc/ld.so.conf.d/oracle-instantclient18.3.conf  \
     && ldconfig \
     && rm -rf /var/lib/apt/lists/*      \
-    && purge -y --auto-remove ca-certificates wget 
+    && apt purge -y --auto-remove ca-certificates wget 
 
